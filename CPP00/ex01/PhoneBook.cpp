@@ -24,13 +24,19 @@ static int	is_digit(std::string str)
 	return 1;
 }
 
-
 void	PhoneBook::addNewContact( void )
 {
 	std::string	firstname, lastname, nickname, phonenumber, darkestsecret;
 
 	std::cout << " Enter First Name " << std::endl;
-	std::getline(std::cin >> std::ws, firstname);
+	std::getline(std::cin, firstname);
+
+	if (std::cin.eof())
+	{
+		std::cout << "End of input detected. Exiting..." << std::endl;
+		exit (1);
+	}
+
 	if (firstname.empty())
 	{
 		std::cerr << " Error. First Name cannot be empty " << std::endl;
@@ -38,7 +44,14 @@ void	PhoneBook::addNewContact( void )
 	}
 
 	std::cout << " Enter Last Name " << std::endl;
-	std::getline(std::cin >> std::ws, lastname);
+	std::getline(std::cin, lastname);
+
+	if (std::cin.eof())
+	{
+		std::cout << "End of input detected. Exiting..." << std::endl;
+		exit (1) ;
+	}
+
 	if (lastname.empty())
 	{
 		std::cerr << " Error. Last Name cannot be empty " << std::endl;
@@ -47,6 +60,12 @@ void	PhoneBook::addNewContact( void )
 
 	std::cout << " Enter Nickname " << std::endl;
 	std::getline(std::cin >> std::ws, nickname);
+	if (std::cin.eof())
+	{
+		std::cout << "End of input detected. Exiting..." << std::endl;
+		exit (1) ;
+	}
+
 	if (nickname.empty())
 	{
 		std::cerr << " Error. Nickname cannot be empty " << std::endl;
@@ -55,11 +74,18 @@ void	PhoneBook::addNewContact( void )
 
 	std::cout << " Enter Phone Number " << std::endl;
 	std::getline(std::cin >> std::ws, phonenumber);
+	if (std::cin.eof())
+	{
+		std::cout << "End of input detected. Exiting..." << std::endl;
+		exit (1) ;
+	}
+
 	if (phonenumber.empty())
 	{
 		std::cerr << " Error, Phone Number cannot be empty " << std::endl;
 		return ;
 	}
+
 	if (is_digit(phonenumber) == 0)
 	{
 		std::cerr << " Error. Phone Number must contain only numbers" << std::endl;
@@ -68,6 +94,12 @@ void	PhoneBook::addNewContact( void )
 
 	std::cout << " Enter Darkest Secret " << std::endl;
 	std::getline(std::cin >> std::ws, darkestsecret);
+	if (std::cin.eof())
+	{
+		std::cout << "End of input detected. Exiting..." << std::endl;
+		exit (1) ;
+	}
+
 	if (darkestsecret.empty())
 	{
 		std::cerr << " Error. Darkest Secret cannot be empty" << std::endl;
@@ -127,6 +159,12 @@ void	PhoneBook::searchContact( void )
 
 	std::cout << "Enter index " << std::endl;
 	std::getline(std::cin >> std::ws, str);
+	if (std::cin.eof())
+	{
+		std::cout << "End of input detected. Exiting..." << std::endl;
+		exit (1) ;
+	}
+
 	i = atoi(str.c_str());
 	if (std::cin.fail() || i < 1 || i > _max_contact)
 	{

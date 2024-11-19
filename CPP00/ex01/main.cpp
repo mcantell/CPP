@@ -21,6 +21,12 @@ int	main()
 	{
 		std::cout << " Enter a command (ADD, SEARCH, EXIT)" << std::endl;
 		std::getline(std::cin >> std::ws, str);
+
+		if (std::cin.eof()) {
+			std::cout << "End of input detected. Exiting..." << std::endl;
+			break;
+		}
+
 		switch (Command(str))
 		{
 			case (1):
