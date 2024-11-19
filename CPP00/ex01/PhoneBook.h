@@ -12,6 +12,7 @@ class PhoneBook
 	static const int	_max_contact = 8;
 	Contact				_contact[_max_contact];
 	int					_index;
+	int					_i;
 
 	void			showContact( void ) const;
 	void			showDetail( int i ) const;

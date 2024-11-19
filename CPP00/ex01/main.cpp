@@ -20,11 +20,16 @@ int	main()
 	while (1)
 	{
 		std::cout << " Enter a command (ADD, SEARCH, EXIT)" << std::endl;
-		std::getline(std::cin >> std::ws, str);
+		std::getline(std::cin, str);
 
 		if (std::cin.eof()) {
 			std::cout << "End of input detected. Exiting..." << std::endl;
 			break;
+		}
+		if (str.empty())
+		{
+			std::cerr << " Error. Command cannot be empty " << std::endl;
+			break ;
 		}
 
 		switch (Command(str))

@@ -1,6 +1,6 @@
 #include "PhoneBook.h"
 
-PhoneBook::PhoneBook() : _index(0) {}
+PhoneBook::PhoneBook() : _index(0), _i(0) {}
 
 PhoneBook::PhoneBook( const PhoneBook& other )
 {
@@ -59,7 +59,7 @@ void	PhoneBook::addNewContact( void )
 	}
 
 	std::cout << " Enter Nickname " << std::endl;
-	std::getline(std::cin >> std::ws, nickname);
+	std::getline(std::cin, nickname);
 	if (std::cin.eof())
 	{
 		std::cout << "End of input detected. Exiting..." << std::endl;
@@ -73,7 +73,7 @@ void	PhoneBook::addNewContact( void )
 	}
 
 	std::cout << " Enter Phone Number " << std::endl;
-	std::getline(std::cin >> std::ws, phonenumber);
+	std::getline(std::cin, phonenumber);
 	if (std::cin.eof())
 	{
 		std::cout << "End of input detected. Exiting..." << std::endl;
@@ -93,7 +93,7 @@ void	PhoneBook::addNewContact( void )
 	}
 
 	std::cout << " Enter Darkest Secret " << std::endl;
-	std::getline(std::cin >> std::ws, darkestsecret);
+	std::getline(std::cin, darkestsecret);
 	if (std::cin.eof())
 	{
 		std::cout << "End of input detected. Exiting..." << std::endl;
@@ -115,9 +115,11 @@ void	PhoneBook::addNewContact( void )
 	}
 	else
 	{
-		for ( int i = 0; i < 7; i++)
-			_contact[i] = _contact[i + 1];
-		_contact[7] = newcontact;
+
+		_contact[_i] = newcontact;
+		_i++;
+		if (_i == _max_contact)
+			_i = 0;
 	}
 }
 
@@ -158,7 +160,7 @@ void	PhoneBook::searchContact( void )
 	int			i;
 
 	std::cout << "Enter index " << std::endl;
-	std::getline(std::cin >> std::ws, str);
+	std::getline(std::cin, str);
 	if (std::cin.eof())
 	{
 		std::cout << "End of input detected. Exiting..." << std::endl;
