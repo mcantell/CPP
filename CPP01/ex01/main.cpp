@@ -11,16 +11,16 @@ int main(int ac, char **av)
         std::cerr << "*Error. You must enter the number of zombies and the name of the zombie horde.*" << std::endl;
         return 1;
     }
-    
+
     if (av[1])
         N = atoi(av[1]);
-    
+
     if (N <= 0)
     {
-        std::cerr << "*Give me a number valid of zombies*" << std::endl;
+        std::cerr << "*Give me a valid namber of zombies*" << std::endl;
         return 1;
     }
-    
+
     if (N >100)
     {
         std::cerr << "*Give me less zombies*" << std::endl;
@@ -40,7 +40,7 @@ int main(int ac, char **av)
         return 1;
     }
     horde = zombieHorde(N, name);
-   
+
     for ( int i = 0; i < N; i++)
     {
         std::cout << i + 1 << " :";
@@ -48,6 +48,6 @@ int main(int ac, char **av)
     }
 
     delete [] horde;
-   
+
     return 0;
 }
