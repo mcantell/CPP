@@ -17,26 +17,33 @@ SandR& SandR::operator=( const SandR& other )
 
 SandR::~SandR() {}
 
-void	SandR::searchAndReplace() const
+void SandR::searchAndReplace() const
 {
-	std::ifstream inputfile(_filename);
+    std::ifstream inputfile(_filename.c_str());
+    if (!inputfile)
+    {
+        std::cerr << "Error: Could not open file " << _filename << std::endl;
+        return;
+    }
 
-	if (!inputfile)
-		std::cerr << " Error: Could not open file" << _filename << std::endl;
+    std::ofstream outfile((_filename + ".replace").c_str());
+    if (!outfile)
+    {
+        std::cerr << "Error: Could not create file " << _filename + ".replace" << std::endl;
+        return;
+    }
 
-	std::ofstream outfile(_filename + ".replace");
-	if (!outfile)
-		std::cerr << "Error: Could not create file" << _filename + ".replace" << std::endl;
+    std::string line;
+    while (std::getline(inputfile, line))
+    {
+        size_t pos;
+        while ((pos = line.find(_s1)) != std::string::npos)
+        {
+            line = line.substr(0, pos) + _s2 + line.substr(pos + _s1.length());
+        }
+        outfile << line << "\n";
+    }
 
-	std::string	line;
-	while (std::getline(inputfile, line))
-	{
-		size_t pos;
-		while ((pos = line.find(_s1)) != std::string::npos) {
-			line = line.substr(0, pos) + _s2 + line.substr(pos + _s1.length());
-		}
-		outfile << line << "\n";
-	}
-	inputfile.close();
-	outfile.close();
+    inputfile.close();
+    outfile.close();
 }
