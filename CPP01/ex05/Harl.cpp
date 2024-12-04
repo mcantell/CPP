@@ -1,12 +1,6 @@
 #include "Harl.h"
 
-Harl::Harl() 
-{
-    levelMap["DEBUG"] = &Harl::_debug;
-    levelMap["INFO"] = &Harl::_info;
-    levelMap["WARNING"] = &Harl::_warning;
-    levelMap["ERROR"] = &Harl::_error;
-}
+Harl::Harl() {}
 
 Harl::Harl( const Harl& other )
 {
@@ -43,8 +37,24 @@ void    Harl::_error()
 
 void    Harl::complain( std::string level )
 {
-    if (levelMap.find(level) != levelMap.end())
-        (this->*levelMap[level])();
-    else
-        std::cerr << "Unknown level: " << level << std::endl;
+    std::string newLevel[] = { "DEBUG", "INFO", "ERROR", "WARNING"};
+
+    void    (Harl::*pointertofunction[])(void) =
+    {
+        &Harl::_debug,
+        &Harl::_warning,
+        &Harl::_info,
+        &Harl::_error
+    };
+    
+    for ( int i = 0; i < 4; i++)
+    {
+        if (level == newLevel[i])
+        {
+            (this->*pointertofunction[i])();
+            return ;
+        }
+    }
+
+    std::cerr << "Unknown level: " << level << std::endl;
 }

@@ -12,7 +12,6 @@ class Harl
     void    _info( void );
     void    _warning( void );
     void    _error( void );
-    std::map<std::string, void (Harl::*)()> levelMap;
 
     public:
             /* Constructor */
