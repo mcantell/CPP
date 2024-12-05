@@ -9,7 +9,7 @@ int main()
 	/* Stampa degli indirizzi di memoria */
 	std::cout << "Memory *address* of the string variable: " << &brain << std::endl;
 	std::cout << "Memory *address* held by stringPTR: " << stringPTR << std::endl;
-	std::cout << "Memory *address* held by stringREF: " << stringREF << std::endl;
+	std::cout << "Memory *address* held by stringREF: " << &stringREF << std::endl;
 
 	/* Stampa dei valori */
 	std::cout << "*Value* of the string variable: " << brain << std::endl;
