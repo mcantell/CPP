@@ -1,43 +1,33 @@
 #include "Fixed.h"
 
 /* Constructors */
-Fixed::Fixed() : _fixedPointValue(0)
-{
-	std::cout << "Default constructor called" << std::endl;
-}
+Fixed::Fixed() : _fixedPointValue(0) {}
 
 Fixed::Fixed( const int raw )
 {
-	std::cout << "Integer constructor called" << std::endl;
 	_fixedPointValue = raw << _fractionalBits; // Converte l'intero in fixed-point
 }
 
 Fixed::Fixed( const float raw)
 {
-	std::cout << "Float constructor called" << std::endl;
 	_fixedPointValue = roundf(raw * (1 << _fractionalBits)); // Moltiplica il float per 2^8 e lo arrotonda
 }
 
 /* Copy constructor */
 Fixed::Fixed ( const Fixed& other )
 {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 }
 
 /* Assigned operator */
 Fixed& Fixed::operator=( const Fixed& other )
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	if ( this != &other )
 		this->_fixedPointValue = other.getRawBits();
 	return *this;
 }
 
-Fixed::~Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
-}
+Fixed::~Fixed() {}
 
 int	Fixed::getRawBits() const
 {
