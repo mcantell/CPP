@@ -17,10 +17,10 @@ class WrongAnimal
                 /* Operator */
                 WrongAnimal& operator=( const WrongAnimal& other);
                 /* Destructor */
-                ~WrongAnimal();
+                virtual ~WrongAnimal();
 
                 virtual void makeSound( void ) const;
-                std::string get_type( void ) const;
+                std::string getType( void ) const;
 };
 
 #endif

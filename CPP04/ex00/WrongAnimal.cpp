@@ -21,15 +21,15 @@ WrongAnimal& WrongAnimal::operator=( const WrongAnimal& other )
 
 WrongAnimal::~WrongAnimal( void )
 {
-    std::cout << "WrongAnimal default constructor called" << std::endl;
+    std::cout << "WrongAnimal constructor called" << std::endl;
 }
 
-void WrongAnimal::get_type( void ) const
+std::string WrongAnimal::getType( void ) const
 {
     return this->_type;
 }
 
-std::string WrongAnimal::makeSound( void ) const
+void WrongAnimal::makeSound( void ) const
 {
     std::cout << "Hello there" << std::endl;
 }

@@ -17,7 +17,7 @@ class Animal
                 /* Operator */
                 Animal& operator=( const Animal& other);
                 /* Destructor */
-                ~Animal();
+                virtual ~Animal();
 
                 virtual void makeSound( void ) const;
                 std::string getType( void ) const;

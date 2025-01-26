@@ -3,7 +3,7 @@
 
 #include "Animal.h"
 
-class Cat
+class Cat : public Animal
 {
     public:
             /* Constructor */
