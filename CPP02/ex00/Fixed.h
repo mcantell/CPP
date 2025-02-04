@@ -15,7 +15,7 @@ class Fixed
 			Fixed( const Fixed& other );
 			/* Operator */
 			Fixed& operator=( const Fixed& other );
-			/* Destructo */
+			/* Destructor */
 			~Fixed();
 
 			int		getRawBits( void ) const;

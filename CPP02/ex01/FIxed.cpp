@@ -8,14 +8,14 @@ Fixed::Fixed() : _fixedPointValue(0)
 
 Fixed::Fixed( const int raw )
 {
-	std::cout << "Integer constructor called" << std::endl;
-	_fixedPointValue = raw << _fractionalBits; // Converte l'intero in fixed-point
+	std::cout << "Int constructor called" << std::endl;
+	_fixedPointValue = raw << _fractionalBits; // Convert the Int in fixed-point
 }
 
 Fixed::Fixed( const float raw)
 {
 	std::cout << "Float constructor called" << std::endl;
-	_fixedPointValue = roundf(raw * (1 << _fractionalBits)); // Moltiplica il float per 2^8 e lo arrotonda
+	_fixedPointValue = roundf(raw * (1 << _fractionalBits)); // Multiply the float by 2^8 and round it
 }
 
 /* Copy constructor */
@@ -51,19 +51,19 @@ void	Fixed::setRawBits( int const raw )
 
 float Fixed::toFloat(void) const
 {
-	return (float)_fixedPointValue / (1 << _fractionalBits); // Qui lo divido per 2^8 e lo rendo float
+	return (float)_fixedPointValue / (1 << _fractionalBits); // Here I divide it by 2^8 and render it float
 }
 
 int Fixed::toInt(void) const
 {
-	return _fixedPointValue >> _fractionalBits; // Esegue lo shift per ottenere l'intero
+	return _fixedPointValue >> _fractionalBits; // Execute the shift to get the integer
 }
 
-// Overload dell'operatore di inserimento (<<)
-/* Operatore di inserimento (<<):
-Permette di stampare un oggetto Fixed come un numero a virgola mobile utilizzando std::cout.*/
+// Overload of the insertion operator (<<)
+/* The insertion operator (<<):
+Allows you to print a fixed object as a floating point number using std::cout.*/
 std::ostream& operator<<(std::ostream &out, const Fixed &f)
 {
-	out << f.toFloat(); // Utilizza toFloat per stampare il numero come float
+	out << f.toFloat(); // Use toFloat to print the number as float
 	return out;
 }

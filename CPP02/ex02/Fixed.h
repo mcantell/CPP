@@ -18,10 +18,10 @@ class Fixed
 			Fixed( const Fixed& other );
 			/* Operator */
 			Fixed& operator=( const Fixed& other );
-			/* Destructo */
+			/* Destructor */
 			~Fixed();
 
-			// Quello tra parentesi viene messo per evitare di fare nuovamente la copia dell'oggetto
+			// The one in brackets is put to avoid copying the object again
 			// Comparison operators
 			bool operator>(const Fixed& other) const;
 			bool operator<(const Fixed& other) const;
