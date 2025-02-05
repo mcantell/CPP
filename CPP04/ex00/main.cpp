@@ -16,14 +16,14 @@ int	main(void)
 	std::cout << "i type: " << i->getType() << std::endl;
 
 	std::cout << "\nSounds:" << std::endl;
-	i->makeSound();
 	j->makeSound();
+	i->makeSound();
 	meta->makeSound();
 
 	std::cout << "\nCleanup:" << std::endl;
-	delete meta;
 	delete j;
 	delete i;
+	delete meta;
 
 	std::cout << "\n=== Testing Wrong Animal ===" << std::endl;
 	const WrongAnimal* wrong_meta = new WrongAnimal();
@@ -37,8 +37,8 @@ int	main(void)
 	wrong_meta->makeSound();
 
 	std::cout << "\nCleanup:" << std::endl;
-	delete wrong_meta;
 	delete wrong_cat;
+	delete wrong_meta;
 
 	return 0;
 }

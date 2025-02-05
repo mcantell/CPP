@@ -33,7 +33,7 @@ Cat::~Cat( void )
 
 void Cat::makeSound( void ) const
 {
-    std::cout << "The cat go meow" << std::endl;
+    std::cout << "The cat goes meow" << std::endl;
 }
 
 Brain* Cat::getBrain( void ) const

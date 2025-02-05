@@ -24,7 +24,7 @@ int main()
     claptrap.beRepaired(5);
     claptrap.attack("Guardian Angel");
     claptrap.takeDamage(5);
-    
+
     scavtrap.setEnergyPoints(0);
     scavtrap.beRepaired(5);
     scavtrap.attack("Cerberus");
@@ -35,19 +35,17 @@ int main()
 
     std::cout << "\nTesting Polymorphism with Virtualization" << std::endl;
 
-    // Usare un array di puntatori alla classe base per gestire diversi tipi
-    ClapTrap *robots[2];  // Array di puntatori a ClapTrap
-    robots[0] = new ClapTrap("Wall-E");   // ClapTrap
-    robots[1] = new ScavTrap("Terminator"); // ScavTrap
+    ClapTrap *robots[2];
+    robots[0] = new ClapTrap("Wall-E");
+    robots[1] = new ScavTrap("Terminator");
 
-    // Test del polimorfismo dinamico
+    // dinamic polimorphism
     for (int i = 0; i < 2; ++i) {
-        robots[i]->attack("a hostile target"); // Risolve a runtime quale metodo chiamare
+        robots[i]->attack("a hostile target"); // Resolve at runtime which metod must to be call
     }
 
-    // Distruggere gli oggetti creati
     for (int i = 0; i < 2; ++i) {
-        delete robots[i]; // Il distruttore virtuale garantisce la chiamata del distruttore corretto
+        delete robots[i];
     }
 
 }

@@ -2,7 +2,7 @@
 
 AAnimal::AAnimal( void ) : _type("")
 {
-    std::cout << "AAnimal defaul constructor called" << std::endl;
+    std::cout << "AAnimal default constructor called" << std::endl;
 }
 
 AAnimal::AAnimal( const AAnimal& other )
@@ -24,7 +24,7 @@ AAnimal::~AAnimal( void )
     std::cout << "AAnimal destructor called" << std::endl;
 }
 
-void AAnimal::makeSound( void ) const 
+void AAnimal::makeSound( void ) const
 {
     std::cout << " Generic AAnimal sound in the bush" << std::endl;
 }

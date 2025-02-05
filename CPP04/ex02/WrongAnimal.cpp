@@ -2,7 +2,7 @@
 
 WrongAnimal::WrongAnimal( void ) : _type("")
 {
-    std::cout << "WrongAnimal default copnstructor called" << std::endl;
+    std::cout << "WrongAnimal default constructor called" << std::endl;
 }
 
 WrongAnimal::WrongAnimal( const WrongAnimal& other )
